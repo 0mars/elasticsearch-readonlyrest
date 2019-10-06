@@ -1,0 +1,19 @@
+readonlyrest:
+    enable: true
+    response_if_req_forbidden: Forbidden!
+    access_control_rules:
+    - name: Master
+      type: allow
+      api_keys: ["xsadasdasfagfdfhjhrdgsdgsfddsf"]
+
+    - name: Write
+      type: allow
+      api_keys: ["asdasgdsfasdrqwerewr525622rewwfff"]
+      actions: ["indices:data/read/*","indices:data/write/index"]
+
+    - name: Read
+      type: allow
+      api_keys: ["ufjututhjrjkri58588itjf8585jf"]
+      actions: ["indices:data/read/*"]
+
+rest.action.multi.allow_explicit_index: false

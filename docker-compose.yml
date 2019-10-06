@@ -1,0 +1,23 @@
+---
+version: "2.1"
+
+services:
+  talks_es:
+    build:
+      context: ./.docker/es
+      dockerfile: Dockerfile
+    command: elasticsearch
+    healthcheck:
+      test: ["CMD-SHELL", "curl --silent --fail 127.0.0.1:9200/_cluster/health || exit 1"]
+      interval: 20s
+      timeout: 30s
+      retries: 3
+    environment:
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - bootstrap.memory_local=true
+      - cluster.name=talks-cluster
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    volumes:
+      - ./.docker/data/es:/usr/share/elasticsearch/data
