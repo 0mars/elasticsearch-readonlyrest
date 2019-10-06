@@ -2,7 +2,7 @@
 version: "2.1"
 
 services:
-  talks_es:
+  elasticsearch:
     build:
       context: ./.docker/es
       dockerfile: Dockerfile
@@ -15,7 +15,7 @@ services:
     environment:
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
       - bootstrap.memory_local=true
-      - cluster.name=talks-cluster
+      - cluster.name=elasticsearch-cluster
     ports:
       - "9200:9200"
       - "9300:9300"
