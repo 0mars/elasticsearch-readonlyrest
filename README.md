@@ -8,3 +8,4 @@ Container containing ES configured with free ACL using readonlyrest plugin
 3. change cors settings to flavour
 4. enjoy or Open a PR for newer versions
 
+docs: https://github.com/beshu-tech/readonlyrest-docs/blob/master/elasticsearch.md#rules
